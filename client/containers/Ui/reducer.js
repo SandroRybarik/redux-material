@@ -4,13 +4,13 @@
  * Because state should not be undefined, after all redux loads it will load
  * the initial state defined in ../store.js
  */
-export const newReducer = (state = {}, action) => {
+export const ui = (state = {}, action) => {
 
     switch (action.type) {
-        case 'BUTTON_WAS_CLICKED':
+        case 'UI_DRAWER_TOGGLE':
             return {
                 ...state,
-                counter: state.counter + 1
+                openDrawer: !state.openDrawer
             };
     
         default:

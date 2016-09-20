@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import UsersList from '../../components/UsersList'
+import axios from 'axios'
+import UsersList from './components/UsersList'
 
 /**
  *                     (App)
@@ -19,8 +19,17 @@ const mapStateToProps = (state) => {
  */
 const mapDispatchToProps = (dispatch) => {
   return {
-    onShowUser: () => {
-      dispatch({type: 'USER_SHOW'});
+    onShowUser: (userId) => {
+        dispatch({type: 'USER_SHOW', userId});
+    },
+    fetchUsers: () => {
+        axios.get('http://private-599deb-media15.apiary-mock.com/users')
+            .then(function (response) {
+                dispatch({type: 'FETCH_USERS_SUCCESS', response: response.data });
+            })
+            .catch(function (error) {
+                return error;
+            });
     }
   }
 };
@@ -30,7 +39,7 @@ const mapDispatchToProps = (dispatch) => {
  *    (App)           >=>         (ContainerApp)
  * Presentational component to container component
  */
-const ContainerUsers = connect(
+const ContainerList = connect(
   mapStateToProps,
   mapDispatchToProps
 )(UsersList)
@@ -38,4 +47,4 @@ const ContainerUsers = connect(
 /**
  * Export ContainerApp to client.js
  */
-export default ContainerUsers;
+export default ContainerList;

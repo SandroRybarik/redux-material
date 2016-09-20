@@ -3,7 +3,7 @@ import { applyMiddleware, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
-import reducers from './reducers'
+import combinedReducers from './combinedReducers'
 
 /**
  * Apply middleware, check docs!
@@ -14,10 +14,9 @@ const middleware = applyMiddleware(thunk, logger());
  * Our initial state of our app
  */
 const initialState = {
-    applicationUi : {
-        greetings: 'Helloworld!',
-        message: 'Open console to see what is going on.',
-        counter: 0
+    ui : {
+        appbarTitle: 'HelloWorld!',
+        openDrawer: false
     },
 
     users: [
@@ -34,4 +33,4 @@ const user = {
     dic: ''
 };
 
-export default createStore(reducers, initialState ,middleware);
+export default createStore(combinedReducers, initialState ,middleware);
