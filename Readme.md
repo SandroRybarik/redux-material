@@ -25,16 +25,16 @@ A boilerplate of things that mostly shouldn't exist.
 $ npm install
 ```
 
-## Running
-
-```
-$ npm start
-```
-
 ## Build
 
 ```
 $ npm run build
+```
+
+## Running
+
+```
+$ npm start
 ```
 
 # License
