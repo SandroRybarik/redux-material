@@ -4,14 +4,16 @@ import ReactDOM from 'react-dom'
 
 import { Provider } from 'react-redux'
 
-import ContainerApp from './containers/App'
+//import ContainerApp from './containers/App'
+
+import App from './components/App'
 
 import store from './store'
 
 ReactDOM.render(
     <Provider store={store}>
 
-        <ContainerApp />
+        <App />
         
     </Provider>,
     document.getElementById('root')
