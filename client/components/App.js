@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Users from '../containers/Users'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import AppBar from 'material-ui/AppBar'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
 // Needed for onTouchTap
@@ -9,9 +9,13 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin();
 
 const App = () => (
-    <MuiThemeProvider>
+    <div>
+        <AppBar
+            title="Title"
+            iconClassNameRight="muidocs-icon-navigation-expand-more"
+        />
         <Users />
-    </MuiThemeProvider>
+    </div>
 )
 
 export default App
