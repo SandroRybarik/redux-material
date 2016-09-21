@@ -13,6 +13,16 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Layout from '../Ui/Layout'
+import Paper from 'material-ui/Paper'
+
+const PaperStyle = {
+    width: 500,
+    margin: '10px auto 0 auto'
+};
+const subheader = {
+  textAlign: 'center'
+};
+
 
 class ShowUser extends React.Component {
     constructor(props){
@@ -22,16 +32,26 @@ class ShowUser extends React.Component {
     render(){
         return (
             <Layout>
-                <List>
-                    <Subheader>Profil</Subheader>
-                
-            
+
+                <Paper style={PaperStyle} zDepth={1}>
+                <Subheader style={subheader}>User information</Subheader>
+                    <List>
+
                         <ListItem
-                        primaryText="id:"
+                        primaryText="Id"
                         secondaryText={this.props.params.userId}
                         />
+                        <ListItem
+                        primaryText="Meno"
+                        secondaryText={this.props.users[this.props.params.userId].name}
+                        />
+                        <ListItem
+                        primaryText="Email"
+                        secondaryText={this.props.users[this.props.params.userId].email}
+                        />
 
-                </List>
+                    </List>
+                </Paper>
             </Layout>
         )
     }
@@ -61,6 +81,7 @@ class ShowUser extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+      users: state.users
   }
 };
 /**
@@ -78,7 +99,7 @@ const mapDispatchToProps = (dispatch) => {
  * Presentational component to container component
  */
 const ContainerShowUser= connect(
-//   mapStateToProps,
+   mapStateToProps
 //   mapDispatchToProps
 )(ShowUser)
 
@@ -86,3 +107,4 @@ const ContainerShowUser= connect(
  * Export ContainerApp to client.js
  */
 export default ContainerShowUser;
+
