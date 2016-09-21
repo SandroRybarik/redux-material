@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
 import axios from 'axios'
 
 
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import Subheader from 'material-ui/Subheader';
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
+import Subheader from 'material-ui/Subheader'
 import Paper from 'material-ui/Paper'
 import Layout from '../Ui/Layout'
 
