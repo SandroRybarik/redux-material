@@ -16,7 +16,12 @@ const middleware = applyMiddleware(thunk, logger());
 const initialState = {
     ui : {
         appbarTitle: 'HelloWorld!',
-        openDrawer: false
+        openDrawer: false,
+    },
+
+    createUserForm: {
+        name: 'Test_user_name',
+        email: ''
     },
 
     users: [
