@@ -19,3 +19,15 @@ export const users = (state = {}, action) => {
 
 }
 
+export const createUserForm = (state ={}, action) => {
+    switch (action.type) {
+
+        case 'CREATE_USER':
+            console.log("CATCHING!");
+            return state;
+        // @TODOcase 'USER_SHOW':
+
+        default:
+            return state;
+    }
+}
