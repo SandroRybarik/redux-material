@@ -33,6 +33,10 @@ const subheader = {
   textAlign: 'center'
 };
 
+const anchorStyle = {
+    textDecoration: 'none'
+};
+
 class UsersList extends React.Component{
 
     constructor(props) {
@@ -52,12 +56,13 @@ class UsersList extends React.Component{
 
                     <List>
                         {this.props.users.map(user => (
+                               <a key={user.id} style={anchorStyle} href={"users/"+ user.id}>
                                 <User 
-                                    key={user.id}
                                     onShowUser={this.props.onShowUser}
                                     {...user}
                                     
                                 />
+                                </a>
                             )
                         )}
                     </List>  
